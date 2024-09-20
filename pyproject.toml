@@ -34,7 +34,7 @@ dependencies = [
 "Homepage" = "https://github.com/kenkehoe/TimberKat"
 
 [tool.setuptools_scm]
-version_file = "TimberKat/_version.py"
+# version_file = "./_version.py"
 
 [tool.ruff]
 ignore = ["E501"]
