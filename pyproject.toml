@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "catlifier"
+description = "My catlifier library"
+readme = "README.md"
+license = { text = "MIT" }
+# version = "1.1.0"
+dynamic = ["version"]
+requires-python = ">=3.8"
+authors = [
+  {name = "Robin Mueller", email = "robin.mueller.m@gmail.com"}
+]
+keywords = ["cats", "purr", "packaging"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Natural Language :: English",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Communications",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "crcmod~=1.7",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/robamu/catlifier-py"
+
+# [tool.setuptools_scm]
+# version_file = "catlifier/_version.py"
+
+# [tool.setuptools.dynamic]
+# version = {attr = "package.__version__"}
+
+[tool.ruff]
+ignore = ["E501"]
+[tool.ruff.extend-per-file-ignores]
+"__init__.py" = ["F401"]
