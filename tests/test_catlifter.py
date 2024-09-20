@@ -1,5 +1,8 @@
 from unittest import TestCase
-from timberkat import TimberKat
+from timberkat.timberkat import TimberKat
+# from timberkat import TimberKat
+
+# import timberkat
 
 class TestTimberKat(TestCase):
 

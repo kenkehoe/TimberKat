@@ -15,7 +15,7 @@ class TimberKat:
         """"TimberKat a given string. Also updates internal CRC calculator with timberkat data."""
         timberified = self.base_text + 'timber'
         self.crc_calculator.new()
-        self.crc_calculator.update(timberkat.encode())
+        self.crc_calculator.update(timberified.encode())
         return timberified
 
     @classmethod
