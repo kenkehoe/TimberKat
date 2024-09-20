@@ -2,27 +2,27 @@ from __future__ import annotations
 from crcmod.predefined import PredefinedCrc
 
 
-def get_catlifier_crc_calculator() -> PredefinedCrc:
+def get_timberkat_crc_calculator() -> PredefinedCrc:
     return PredefinedCrc("crc-ccitt-false")
 
 
-class Catlifier:
+class TimberKat:
     def __init__(self, base_text: str):
         self.base_text = base_text
         self.crc_calculator = PredefinedCrc("crc-ccitt-false")
 
-    def catlify(self) -> str:
-        """"Catlify a given string. Also updates internal CRC calculator with catlified data."""
-        catlified = self.base_text + "🐈"
+    def timberify(self) -> str:
+        """"TimberKat a given string. Also updates internal CRC calculator with timberkat data."""
+        timberified = self.base_text + 'timber'
         self.crc_calculator.new()
-        self.crc_calculator.update(catlified.encode())
-        return catlified
+        self.crc_calculator.update(timberkat.encode())
+        return timberified
 
     @classmethod
-    def uncatlify(cls, catlified_text: str) -> Catlifier:
-        """Generates a new :py:class:`Catlifier` instance from a catlified text.
+    def untimberify(cls, timberkat_text: str) -> TimberKat:
+        """Generates a new :py:class:`TimberKat` instance from a timberkat text.
         """
-        stripped_text = catlified_text.rstrip("🐈")
+        stripped_text = timberkat_text.rstrip('timber')
         instance = cls(stripped_text)
-        instance.crc_calculator.update(catlified_text.encode())
+        instance.crc_calculator.update(timberkat_text.encode())
         return instance

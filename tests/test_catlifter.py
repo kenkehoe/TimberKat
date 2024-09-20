@@ -1,18 +1,18 @@
 from unittest import TestCase
-from catlifier import Catlifier
+from timberkat import TimberKat
 
-class TestCatlifier(TestCase):
+class TestTimberKat(TestCase):
 
     def setUp(self) -> None:
         self.test_str = "hello world"
 
-    def test_catlify(self):
-        catlifier = Catlifier(self.test_str)
-        catlified = catlifier.catlify()
-        self.assertEqual(catlifier.base_text, self.test_str)
-        self.assertEqual(catlified, self.test_str + "🐈")
+    def test_timberify(self):
+        timberifier = TimberKat(self.test_str)
+        timberified = timberifier.timberify()
+        self.assertEqual(timberifier.base_text, self.test_str)
+        self.assertEqual(timberified, self.test_str + 'timber')
 
-    def test_uncatlify(self):
-        catlified = self.test_str + "🐈"
-        catlifier = Catlifier.uncatlify(catlified)
-        self.assertEqual(catlifier.base_text, self.test_str)
+    def test_untimberify(self):
+        timberified = self.test_str + 'timber'
+        timberified = TimberKat.untimberify(timberified)
+        self.assertEqual(timberified.base_text, self.test_str)
