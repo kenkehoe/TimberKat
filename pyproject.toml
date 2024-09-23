@@ -1,13 +1,13 @@
 [build-system]
 requires = ["setuptools>=61.0", "setuptools_scm>=8"]  # for the build process only
-build-backend = "setuptools.build_meta"
+build-backend = "setuptools.build_meta"  # Defines how to build and with what tools.
 
 [project]
-name = "TimberKat"  # This is requird and can not be dynamic
+name = "TimberKat"  # This is required and can not be dynamic
 description = "My TimberKat library"
 readme = "README.md"
 license = { text = "MIT" }
-# version = "1.1.0"  # For PyPi Final releases only #.# is allowed.
+# version = "1.1.0"
 dynamic = [
     "version",  # This allows setting version with Git.
     "dependencies",  # This says the list of dependiences are read in.
@@ -24,15 +24,12 @@ classifiers = [
     "Operating System :: POSIX",
     "Operating System :: Microsoft :: Windows",
     "Programming Language :: Python :: 3",
-#    "Programming Language :: Python :: 3.8",
-#    "Programming Language :: Python :: 3.9",
-#    "Topic :: Communications",
-#    "Topic :: Software Development :: Libraries",
-#    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
+# This declaration allows the version to be pulled from Git using Git tags.
+# Need to have "version" listed in dynamic above.
 [tool.setuptools_scm]
-
 
 # https://stackoverflow.com/questions/76722680/what-is-the-best-way-to-combine-conda-with-standard-python-packaging-tools-e-g
 [tool.setuptools.dynamic]
