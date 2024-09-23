@@ -1,14 +1,18 @@
 [build-system]
-requires = ["setuptools>=61.0", "setuptools_scm>=8"]
+requires = ["setuptools>=61.0", "setuptools_scm>=8"]  # for the build process only
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "TimberKat"
+name = "TimberKat"  # This is requird and can not be dynamic
 description = "My TimberKat library"
 readme = "README.md"
 license = { text = "MIT" }
-# version = "1.1.0"
-dynamic = ["version"]
+# version = "1.1.0"  # For PyPi Final releases only #.# is allowed.
+dynamic = [
+    "version",  # This allows setting version with Git.
+    "dependencies",  # This says the list of dependiences are read in.
+    "optional-dependencies",  # This says the list of optional dependiences are read in.
+]
 requires-python = ">=3.10"
 authors = [
   {name = "Dick Tracy", email = "dick.tracy@gmail.com"}
@@ -20,23 +24,19 @@ classifiers = [
     "Operating System :: POSIX",
     "Operating System :: Microsoft :: Windows",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Topic :: Communications",
-    "Topic :: Software Development :: Libraries",
-    "Topic :: Software Development :: Libraries :: Python Modules",
+#    "Programming Language :: Python :: 3.8",
+#    "Programming Language :: Python :: 3.9",
+#    "Topic :: Communications",
+#    "Topic :: Software Development :: Libraries",
+#    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = [
-    "crcmod~=1.7",
-]
+
+# https://stackoverflow.com/questions/76722680/what-is-the-best-way-to-combine-conda-with-standard-python-packaging-tools-e-g
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = { file = ["requirements-dev.txt"] }
 
 [project.urls]
 "Homepage" = "https://github.com/kenkehoe/TimberKat"
-
-[tool.setuptools_scm]
-# version_file = "./_version.py"
-
-[tool.ruff]
-ignore = ["E501"]
-[tool.ruff.extend-per-file-ignores]
-"__init__.py" = ["F401"]

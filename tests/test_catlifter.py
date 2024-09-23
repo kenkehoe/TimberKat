@@ -1,21 +1,25 @@
-from unittest import TestCase
 from timberkat.timberkat import TimberKat
-# from timberkat import TimberKat
 
-# import timberkat
+def test_timberkat():
+    '''
+    This function is recognized as a test function that will be execuited
+    by pytest since the name starts with "test_". The code is executed
+    and if the two values in the assert line do not match an exception
+    will be raised.
+    '''
 
-class TestTimberKat(TestCase):
+    test_str = 'hello_world'
 
-    def setUp(self) -> None:
-        self.test_str = "hello world"
+    timberifier = TimberKat()
+    assert timberifier.base_text == None
 
-    def test_timberify(self):
-        timberifier = TimberKat(self.test_str)
-        timberified = timberifier.timberify()
-        self.assertEqual(timberifier.base_text, self.test_str)
-        self.assertEqual(timberified, self.test_str + 'timber')
+    timberifier = TimberKat(test_str)
+    assert timberifier.base_text == test_str
 
-    def test_untimberify(self):
-        timberified = self.test_str + 'timber'
-        timberified = TimberKat.untimberify(timberified)
-        self.assertEqual(timberified.base_text, self.test_str)
+    timberified = timberifier.timberify()
+    assert timberified == f"{test_str}_timber"
+    assert timberifier.base_text == f"{test_str}_timber"
+
+    timberified = timberifier.untimberify()
+    assert timberified == test_str
+    assert timberifier.base_text == test_str
