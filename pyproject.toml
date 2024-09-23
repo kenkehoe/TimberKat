@@ -31,6 +31,8 @@ classifiers = [
 #    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
+[tool.setuptools_scm]
+
 # https://stackoverflow.com/questions/76722680/what-is-the-best-way-to-combine-conda-with-standard-python-packaging-tools-e-g
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }
